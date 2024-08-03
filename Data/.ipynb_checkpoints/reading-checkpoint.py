@@ -49,18 +49,18 @@ class MnistDataloader(object):
         x_test, y_test = self.read_images_labels(self.test_images_filepath, self.test_labels_filepath)
         return (x_train, y_train),(x_test, y_test)  
 
-    def sampling (self, train_samples, test_samples, x_train, y_train, x_test, y_test):
+    def sampling (self, tr_samples, ts_samples, x_train, y_train, x_test, y_test):
         X_train = []
         X_test = []
         Y_train = []
         Y_test = []
     
-        for i in range(0, train_samples):
+        for i in range(0, tr_samples):
             r = random.randint(0, 60000)
             X_train.append(x_train[r])
             Y_train.append(y_train[r])
         
-        for i in range(0, test_samples):
+        for i in range(0, ts_samples):
             r = random.randint(1, 10000)
             X_test.append(x_test[r])
             Y_test.append(y_test[r])
